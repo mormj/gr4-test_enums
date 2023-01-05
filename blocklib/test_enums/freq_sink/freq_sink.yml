@@ -1,0 +1,43 @@
+module: test_enums
+block: freq_sink
+label: Frequency Sink
+blocktype: sync_block
+
+includes:
+  - gnuradio/test_enums/enums.h
+
+# Example Parameters
+parameters:
+-   id: itemsize
+    label: Item Size
+    dtype: size
+    settable: false
+    default: 0
+    grc:
+        hide: part
+-   id: mode
+    label: Sink Mode
+    dtype: enums/freq_sink_mode_t
+    is_enum: true
+    gettable: true
+
+
+# Example Ports
+ports:
+-   domain: stream
+    id: in
+    direction: input
+    type: untyped
+    size: parameters/itemsize
+
+-   domain: stream
+    id: out
+    direction: output
+    type: untyped
+    size: parameters/itemsize
+
+implementations:
+-   id: cpu
+# -   id: cuda
+
+file_format: 1
