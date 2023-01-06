@@ -16,7 +16,8 @@ class test_freq_sink(gr_unittest.TestCase):
 
     def test_instantiate(self):
         # If this is a templated block, be sure to add the appropriate suffix
-        op = test_enums.freq_sink()
+        op = test_enums.freq_sink(mode=test_enums.test_enums_python.freq_sink_mode_t.FREQ_SINK_MODE_STREAMING)
+        self.assertEqual(op.mode(), test_enums.test_enums_python.freq_sink_mode_t.FREQ_SINK_MODE_STREAMING)
 
     def test_give_descriptive_name(self):
         # Set up a flowgraph, run, validate the results
